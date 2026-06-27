@@ -5,12 +5,25 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { CheckCircle, ArrowRight, Calendar, Clock, User, Phone, Mail, MessageSquare, Loader2 } from "lucide-react";
+import {
+  CheckCircle,
+  ArrowRight,
+  Calendar,
+  Clock,
+  User,
+  Phone,
+  Mail,
+  MessageSquare,
+  Loader2,
+} from "lucide-react";
 import { PLANS } from "@/lib/data";
+import Link from "next/link";
 
 const bookingSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
-  phone: z.string().regex(/^[6-9]\d{9}$/, "Enter a valid 10-digit Indian mobile number"),
+  phone: z
+    .string()
+    .regex(/^[6-9]\d{9}$/, "Enter a valid 10-digit Indian mobile number"),
   email: z.string().email("Enter a valid email address"),
   plan: z.string().min(1, "Please select a plan"),
   preferredTime: z.string().min(1, "Please select a preferred time"),
@@ -51,27 +64,33 @@ export default function BookingClient() {
     <div className="pt-20">
       {/* Hero */}
       <section className="relative py-24 bg-navy-950 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#1E3A8A_0%,_#0A0F1E_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#1E3A8A_0%,#0A0F1E_60%)]" />
         <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-gold-500/10 rounded-full blur-3xl animate-blob" />
         <div className="section-container relative text-center">
           <motion.span
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-gold-500/30 bg-gold-500/10 text-gold-400 mb-6"
           >
             Reserve Your Spot
           </motion.span>
           <motion.h1
-            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
             className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6"
           >
             Book Your
             <span className="italic text-gold-400"> Study Seat</span>
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
             className="text-gray-300 text-xl max-w-xl mx-auto"
           >
-            Fill in your details and we&apos;ll confirm your booking within 30 minutes. Free 3-hour trial for first-time visitors.
+            Fill in your details and we&apos;ll confirm your booking within 30
+            minutes. Free 3-hour trial for first-time visitors.
           </motion.p>
         </div>
       </section>
@@ -82,26 +101,53 @@ export default function BookingClient() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* Left: Info */}
             <div className="lg:col-span-2">
-              <h2 className="font-display font-bold text-3xl text-navy-950 mb-6">What happens next?</h2>
+              <h2 className="font-display font-bold text-3xl text-navy-950 mb-6">
+                What happens next?
+              </h2>
               <div className="space-y-6">
                 {[
-                  { step: "01", title: "Fill the form", desc: "Provide your details and preferred slot." },
-                  { step: "02", title: "Confirmation", desc: "We confirm via WhatsApp/phone within 30 minutes." },
-                  { step: "03", title: "Visit & Settle In", desc: "Arrive at the library with a valid ID. We&apos;ll set you up." },
-                  { step: "04", title: "Start Studying", desc: "Experience premium focus from your very first session." },
+                  {
+                    step: "01",
+                    title: "Fill the form",
+                    desc: "Provide your details and preferred slot.",
+                  },
+                  {
+                    step: "02",
+                    title: "Confirmation",
+                    desc: "We confirm via WhatsApp/phone within 30 minutes.",
+                  },
+                  {
+                    step: "03",
+                    title: "Visit & Settle In",
+                    desc: "Arrive at the library with a valid ID. We&apos;ll set you up.",
+                  },
+                  {
+                    step: "04",
+                    title: "Start Studying",
+                    desc: "Experience premium focus from your very first session.",
+                  },
                 ].map((s) => (
                   <div key={s.step} className="flex gap-4">
-                    <div className="w-8 h-8 rounded-full bg-gold-500 flex items-center justify-center text-navy-950 font-bold text-xs flex-shrink-0 mt-0.5">{s.step}</div>
+                    <div className="w-8 h-8 rounded-full bg-gold-500 flex items-center justify-center text-navy-950 font-bold text-xs shrink-0 mt-0.5">
+                      {s.step}
+                    </div>
                     <div>
-                      <h4 className="font-semibold text-navy-950 mb-1">{s.title}</h4>
+                      <h4 className="font-semibold text-navy-950 mb-1">
+                        {s.title}
+                      </h4>
                       <p className="text-gray-500 text-sm">{s.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
               <div className="mt-10 p-6 rounded-2xl bg-emerald-50 border border-emerald-100">
-                <p className="text-emerald-800 font-semibold text-sm mb-1">🎁 First visit? It&apos;s free!</p>
-                <p className="text-emerald-700 text-sm">First-time visitors get a complimentary 3-hour trial session, no strings attached.</p>
+                <p className="text-emerald-800 font-semibold text-sm mb-1">
+                  🎁 First visit? It&apos;s free!
+                </p>
+                <p className="text-emerald-700 text-sm">
+                  First-time visitors get a complimentary 3-hour trial session,
+                  no strings attached.
+                </p>
               </div>
             </div>
 
@@ -116,25 +162,36 @@ export default function BookingClient() {
                     exit={{ opacity: 0, y: -20 }}
                     className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8"
                   >
-                    <h3 className="font-display font-bold text-2xl text-navy-950 mb-8">Your Booking Details</h3>
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                    <h3 className="font-display font-bold text-2xl text-navy-950 mb-8">
+                      Your Booking Details
+                    </h3>
+                    <form
+                      onSubmit={handleSubmit(onSubmit)}
+                      className="space-y-5"
+                    >
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         {/* Name */}
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                            <User className="w-3.5 h-3.5 inline mr-1.5 text-gray-400" />Full Name *
+                            <User className="w-3.5 h-3.5 inline mr-1.5 text-gray-400" />
+                            Full Name *
                           </label>
                           <input
                             {...register("name")}
                             placeholder="Priya Sharma"
                             className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-950/20 focus:border-navy-950 transition-all"
                           />
-                          {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+                          {errors.name && (
+                            <p className="text-red-500 text-xs mt-1">
+                              {errors.name.message}
+                            </p>
+                          )}
                         </div>
                         {/* Phone */}
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                            <Phone className="w-3.5 h-3.5 inline mr-1.5 text-gray-400" />Mobile Number *
+                            <Phone className="w-3.5 h-3.5 inline mr-1.5 text-gray-400" />
+                            Mobile Number *
                           </label>
                           <input
                             {...register("phone")}
@@ -142,13 +199,18 @@ export default function BookingClient() {
                             type="tel"
                             className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-950/20 focus:border-navy-950 transition-all"
                           />
-                          {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
+                          {errors.phone && (
+                            <p className="text-red-500 text-xs mt-1">
+                              {errors.phone.message}
+                            </p>
+                          )}
                         </div>
                       </div>
                       {/* Email */}
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                          <Mail className="w-3.5 h-3.5 inline mr-1.5 text-gray-400" />Email Address *
+                          <Mail className="w-3.5 h-3.5 inline mr-1.5 text-gray-400" />
+                          Email Address *
                         </label>
                         <input
                           {...register("email")}
@@ -156,13 +218,19 @@ export default function BookingClient() {
                           type="email"
                           className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-950/20 focus:border-navy-950 transition-all"
                         />
-                        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+                        {errors.email && (
+                          <p className="text-red-500 text-xs mt-1">
+                            {errors.email.message}
+                          </p>
+                        )}
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         {/* Plan */}
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1.5">Membership Plan *</label>
+                          <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                            Membership Plan *
+                          </label>
                           <select
                             {...register("plan")}
                             className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-950/20 focus:border-navy-950 transition-all bg-white"
@@ -175,12 +243,17 @@ export default function BookingClient() {
                               </option>
                             ))}
                           </select>
-                          {errors.plan && <p className="text-red-500 text-xs mt-1">{errors.plan.message}</p>}
+                          {errors.plan && (
+                            <p className="text-red-500 text-xs mt-1">
+                              {errors.plan.message}
+                            </p>
+                          )}
                         </div>
                         {/* Visit Date */}
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                            <Calendar className="w-3.5 h-3.5 inline mr-1.5 text-gray-400" />Visit Date *
+                            <Calendar className="w-3.5 h-3.5 inline mr-1.5 text-gray-400" />
+                            Visit Date *
                           </label>
                           <input
                             {...register("visitDate")}
@@ -188,32 +261,47 @@ export default function BookingClient() {
                             min={new Date().toISOString().split("T")[0]}
                             className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-navy-950/20 focus:border-navy-950 transition-all"
                           />
-                          {errors.visitDate && <p className="text-red-500 text-xs mt-1">{errors.visitDate.message}</p>}
+                          {errors.visitDate && (
+                            <p className="text-red-500 text-xs mt-1">
+                              {errors.visitDate.message}
+                            </p>
+                          )}
                         </div>
                       </div>
 
                       {/* Time Slot */}
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          <Clock className="w-3.5 h-3.5 inline mr-1.5 text-gray-400" />Preferred Time Slot *
+                          <Clock className="w-3.5 h-3.5 inline mr-1.5 text-gray-400" />
+                          Preferred Time Slot *
                         </label>
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                           {timeSlots.map((slot) => (
                             <label key={slot} className="cursor-pointer">
-                              <input type="radio" value={slot} {...register("preferredTime")} className="sr-only peer" />
+                              <input
+                                type="radio"
+                                value={slot}
+                                {...register("preferredTime")}
+                                className="sr-only peer"
+                              />
                               <div className="text-center py-2.5 px-3 rounded-xl border border-gray-200 text-xs font-medium text-gray-600 peer-checked:border-navy-950 peer-checked:bg-navy-950 peer-checked:text-white transition-all hover:border-gray-300">
                                 {slot}
                               </div>
                             </label>
                           ))}
                         </div>
-                        {errors.preferredTime && <p className="text-red-500 text-xs mt-1">{errors.preferredTime.message}</p>}
+                        {errors.preferredTime && (
+                          <p className="text-red-500 text-xs mt-1">
+                            {errors.preferredTime.message}
+                          </p>
+                        )}
                       </div>
 
                       {/* Message */}
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                          <MessageSquare className="w-3.5 h-3.5 inline mr-1.5 text-gray-400" />Additional Message (optional)
+                          <MessageSquare className="w-3.5 h-3.5 inline mr-1.5 text-gray-400" />
+                          Additional Message (optional)
                         </label>
                         <textarea
                           {...register("message")}
@@ -229,15 +317,32 @@ export default function BookingClient() {
                         className="btn-primary w-full justify-center disabled:opacity-70 disabled:cursor-not-allowed"
                       >
                         {loading ? (
-                          <><Loader2 className="w-4 h-4 animate-spin" /> Submitting...</>
+                          <>
+                            <Loader2 className="w-4 h-4 animate-spin" />{" "}
+                            Submitting...
+                          </>
                         ) : (
-                          <>Book My Seat <ArrowRight className="w-4 h-4" /></>
+                          <>
+                            Book My Seat <ArrowRight className="w-4 h-4" />
+                          </>
                         )}
                       </button>
                       <p className="text-center text-xs text-gray-400">
                         By submitting, you agree to our{" "}
-                        <a href="/terms" className="text-navy-950 underline underline-offset-2">Terms</a> &{" "}
-                        <a href="/privacy" className="text-navy-950 underline underline-offset-2">Privacy Policy</a>.
+                        <a
+                          href="/terms"
+                          className="text-navy-950 underline underline-offset-2"
+                        >
+                          Terms
+                        </a>{" "}
+                        &{" "}
+                        <a
+                          href="/privacy"
+                          className="text-navy-950 underline underline-offset-2"
+                        >
+                          Privacy Policy
+                        </a>
+                        .
                       </p>
                     </form>
                   </motion.div>
@@ -249,8 +354,13 @@ export default function BookingClient() {
                     className="bg-white rounded-3xl shadow-xl border border-gray-100 p-12 text-center"
                   >
                     <motion.div
-                      initial={{ scale: 0 }} animate={{ scale: 1 }}
-                      transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{
+                        delay: 0.2,
+                        type: "spring",
+                        stiffness: 200,
+                      }}
                       className="w-20 h-20 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-6"
                     >
                       <CheckCircle className="w-10 h-10 text-emerald-600" />
@@ -259,12 +369,13 @@ export default function BookingClient() {
                       Booking Received! 🎉
                     </h3>
                     <p className="text-gray-500 text-lg mb-8">
-                      Thank you! We&apos;ll confirm your booking via WhatsApp and email within 30 minutes.
-                      We&apos;re excited to welcome you to Athenaeum!
+                      Thank you! We&apos;ll confirm your booking via WhatsApp
+                      and email within 30 minutes. We&apos;re excited to welcome
+                      you to Athenaeum!
                     </p>
-                    <a href="/" className="btn-primary inline-flex">
+                    <Link href="/" className="btn-primary inline-flex">
                       Back to Home
-                    </a>
+                    </Link>
                   </motion.div>
                 )}
               </AnimatePresence>
