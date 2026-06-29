@@ -212,9 +212,9 @@ export const FACILITIES = [
     subtitle: "Where focus meets comfort",
     description:
       "Our flagship 80-seat main study hall features ergonomic chairs, wide desks, warm task lighting, and soundproof partitions between seats. Designed after studying how the world's most productive people work, every detail serves your concentration.",
-    image: "/images/study-hall.jpg",
     imageAlt: "Spacious and well-lit main study hall with rows of study desks",
     tag: "Main Hall",
+    image: "/home/library-hall.jpg",
   },
   {
     id: "reading-area",
@@ -222,7 +222,7 @@ export const FACILITIES = [
     subtitle: "Curated for deep reading",
     description:
       "A thoughtfully designed reading lounge with over 15,000 books, journals, and periodicals. Plush seating, soft ambient lighting, and a quiet atmosphere make this the perfect escape for readers and researchers.",
-    image: "/images/reading-area.jpg",
+    image: "/home/reading-area.jpg",
     imageAlt: "Cozy reading lounge with bookshelves and comfortable seating",
     tag: "Library",
   },
@@ -232,7 +232,7 @@ export const FACILITIES = [
     subtitle: "Your personal command center",
     description:
       "20 fully enclosed, air-conditioned private cabins with dedicated power, USB-C ports, and adjustable lighting. Ideal for those who need absolute privacy for competitive exam prep, online classes, or professional work.",
-    image: "/images/cabin.jpg",
+    image: "/home/cabin.jpg",
     imageAlt: "Private study cabin with enclosed desk and focused lighting",
     tag: "Premium",
   },
@@ -242,7 +242,7 @@ export const FACILITIES = [
     subtitle: "Warm welcome, every time",
     description:
       "A modern, welcoming reception area staffed by friendly professionals. From membership queries to seat bookings, our team ensures your experience starts perfectly from the moment you arrive.",
-    image: "/images/reception.jpg",
+    image: "/home/reception.jpg",
     imageAlt: "Modern library reception desk with helpful staff",
     tag: "Services",
   },
@@ -252,7 +252,7 @@ export const FACILITIES = [
     subtitle: "Relax before you focus",
     description:
       "A tastefully designed waiting and refreshment area where you can decompress, have a beverage, and gear up for your study session. Lounge seating, greenery, and calming music create a transitional space between the outside world and your study zone.",
-    image: "/images/waiting.jpg",
+    image: "/home/waiting.jpg",
     imageAlt: "Comfortable waiting area with lounge chairs and indoor plants",
     tag: "Lounge",
   },
@@ -262,7 +262,7 @@ export const FACILITIES = [
     subtitle: "Zero parking worries",
     description:
       "Spacious, well-lit, and CCTV-monitored dedicated parking for both two-wheelers and four-wheelers. Free for all active members. Come from anywhere and leave your vehicle stress-free.",
-    image: "/images/parking.jpg",
+    image: "/home/parking.jpg",
     imageAlt: "Secure and well-lit parking area for library members",
     tag: "Convenience",
   },
@@ -385,7 +385,8 @@ export const BLOG_POSTS = [
     category: "Productivity",
     readTime: "6 min read",
     date: "June 20, 2026",
-    image: "/images/blog-1.jpg",
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1200",
     featured: true,
   },
   {
@@ -397,7 +398,8 @@ export const BLOG_POSTS = [
     category: "UPSC",
     readTime: "8 min read",
     date: "June 15, 2026",
-    image: "/images/blog-2.jpg",
+    image:
+      "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=800",
     featured: false,
   },
   {
@@ -409,7 +411,8 @@ export const BLOG_POSTS = [
     category: "Productivity",
     readTime: "5 min read",
     date: "June 10, 2026",
-    image: "/images/blog-3.jpg",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
     featured: false,
   },
   {
@@ -421,7 +424,8 @@ export const BLOG_POSTS = [
     category: "Study Tips",
     readTime: "4 min read",
     date: "June 5, 2026",
-    image: "/images/blog-4.jpg",
+    image:
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800",
     featured: false,
   },
   {
@@ -433,7 +437,8 @@ export const BLOG_POSTS = [
     category: "CA Prep",
     readTime: "10 min read",
     date: "May 28, 2026",
-    image: "/images/blog-5.jpg",
+    image:
+      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800",
     featured: false,
   },
   {
@@ -445,11 +450,11 @@ export const BLOG_POSTS = [
     category: "Study Tips",
     readTime: "5 min read",
     date: "May 20, 2026",
-    image: "/images/blog-6.jpg",
+    image:
+      "https://images.unsplash.com/photo-1516414447565-b14be0adf13e?auto=format&fit=crop&q=80&w=800",
     featured: false,
   },
 ];
-
 // ── TEAM MEMBERS ────────────────────────────────────────────
 export const TEAM = [
   {

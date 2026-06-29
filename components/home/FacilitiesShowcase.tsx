@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { FACILITIES } from "@/lib/data";
+import Image from "next/image";
 
 export default function FacilitiesShowcase() {
   return (
@@ -17,7 +18,7 @@ export default function FacilitiesShowcase() {
             Built for <span className="italic text-gold-500">Serious</span> Learners
           </h2>
           <p className="text-gray-500 text-lg">
-            Every space is thoughtfully designed. Every detail is intentional. 
+            Every space is thoughtfully designed. Every detail is intentional.
             Every facility serves your focus.
           </p>
         </div>
@@ -59,27 +60,35 @@ function FacilityRow({
       initial={{ opacity: 0, y: 60 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${
-        reverse ? "lg:flex-row-reverse" : ""
-      }`}
+      className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${reverse ? "lg:flex-row-reverse" : ""
+        }`}
     >
       {/* Image */}
       <div className={reverse ? "lg:order-2" : ""}>
         <div className="relative rounded-3xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 group">
           {/* Placeholder image with gradient */}
-          <div
-            className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
-            style={{
-              background: [
-                "linear-gradient(135deg, #0A0F1E 0%, #1E3A8A 50%, #059669 100%)",
-                "linear-gradient(135deg, #064e3b 0%, #059669 50%, #D4A843 100%)",
-                "linear-gradient(135deg, #1e1b4b 0%, #4338ca 50%, #0A0F1E 100%)",
-                "linear-gradient(135deg, #7c2d12 0%, #b45309 50%, #D4A843 100%)",
-                "linear-gradient(135deg, #0c4a6e 0%, #0284c7 50%, #059669 100%)",
-                "linear-gradient(135deg, #0A0F1E 0%, #374151 50%, #6b7280 100%)",
-              ][index % 6],
-            }}
-          />
+          {
+            facility.image ? (
+              <Image src={facility.image} fill alt={facility.imageAlt} />
+
+            ) :
+              (
+
+                <div
+                  className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
+                  style={{
+                    background: [
+                      "linear-gradient(135deg, #0A0F1E 0%, #1E3A8A 50%, #059669 100%)",
+                      "linear-gradient(135deg, #064e3b 0%, #059669 50%, #D4A843 100%)",
+                      "linear-gradient(135deg, #1e1b4b 0%, #4338ca 50%, #0A0F1E 100%)",
+                      "linear-gradient(135deg, #7c2d12 0%, #b45309 50%, #D4A843 100%)",
+                      "linear-gradient(135deg, #0c4a6e 0%, #0284c7 50%, #059669 100%)",
+                      "linear-gradient(135deg, #0A0F1E 0%, #374151 50%, #6b7280 100%)",
+                    ][index % 6],
+                  }}
+                />
+              )
+          }
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center text-white/80">
               <div className="w-16 h-16 rounded-2xl bg-white/15 flex items-center justify-center mx-auto mb-3">

@@ -71,9 +71,10 @@ export default function LibraryTour() {
           )}
 
           {playing && (
+            
             <iframe
               className="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0"
+              src="https://www.youtube.com/embed/ZNSA0NrDeb4?si=LIx-R8Dtlg0dxOje&autoplay=1&rel=0&modestbranding=1"
               title="Athenaeum Study Hall Virtual Tour"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

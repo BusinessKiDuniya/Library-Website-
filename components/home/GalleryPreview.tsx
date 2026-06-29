@@ -4,15 +4,16 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ArrowRight, X, ZoomIn } from "lucide-react";
+import Image from "next/image";
 
 const galleryItems = [
-  { id: 1, title: "Main Study Hall", tag: "Study Hall", span: "col-span-2 row-span-2", gradient: "from-navy-950 to-blue-900" },
-  { id: 2, title: "Private Cabin", tag: "Cabin", span: "col-span-1 row-span-1", gradient: "from-emerald-900 to-teal-900" },
-  { id: 3, title: "Reading Lounge", tag: "Library", span: "col-span-1 row-span-1", gradient: "from-amber-900 to-orange-900" },
-  { id: 4, title: "Reception Area", tag: "Reception", span: "col-span-1 row-span-1", gradient: "from-purple-900 to-indigo-900" },
-  { id: 5, title: "Wi-Fi Setup", tag: "Facilities", span: "col-span-1 row-span-1", gradient: "from-cyan-900 to-blue-900" },
-  { id: 6, title: "Locker Room", tag: "Security", span: "col-span-1 row-span-2", gradient: "from-slate-900 to-gray-800" },
-  { id: 7, title: "Waiting Area", tag: "Lounge", span: "col-span-1 row-span-1", gradient: "from-rose-900 to-pink-900" },
+  { id: 1, title: "Main Study Hall", tag: "Study Hall", span: "col-span-2 row-span-2", gradient: "from-navy-950 to-blue-900", image: "/home/library-hall.jpg" },
+  { id: 2, title: "Private Cabin", tag: "Cabin", span: "col-span-1 row-span-1", gradient: "from-emerald-900 to-teal-900", image: "/home/cabin.jpg" },
+  { id: 3, title: "Reading Lounge", tag: "Library", span: "col-span-1 row-span-1", gradient: "from-amber-900 to-orange-900", image: "/home/reading-area.jpg" },
+  { id: 4, title: "Reception Area", tag: "Reception", span: "col-span-1 row-span-1", gradient: "from-purple-900 to-indigo-900", image: "/home/parking.jpg" },
+  { id: 5, title: "Wi-Fi Setup", tag: "Facilities", span: "col-span-1 row-span-1", gradient: "from-cyan-900 to-blue-900", image: "/home/wifi.jpg" },
+  { id: 6, title: "Locker Room", tag: "Security", span: "col-span-1 row-span-2", gradient: "from-slate-900 to-gray-800", image: "/home/locker.jpg" },
+  { id: 7, title: "Waiting Area", tag: "Lounge", span: "col-span-1 row-span-1", gradient: "from-rose-900 to-pink-900", image: "/home/waiting.jpg" },
 ];
 
 export default function GalleryPreview() {
@@ -73,8 +74,9 @@ export default function GalleryPreview() {
               className={`${item.span} relative rounded-2xl overflow-hidden cursor-pointer group`}
               onClick={() => setLightboxItem(item)}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} transition-transform duration-500 group-hover:scale-105`} />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+              <Image src={item.image} alt={item.title} fill objectFit="cover"/>
+              {/* <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} transition-transform duration-500 group-hover:scale-105`} />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" /> */}
 
               {/* Hover overlay */}
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
@@ -108,19 +110,20 @@ export default function GalleryPreview() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.85, opacity: 0 }}
               transition={{ type: "spring", damping: 25 }}
-              className="relative w-full max-w-3xl aspect-video rounded-3xl overflow-hidden"
+              className="relative w-full max-w-3xl aspect-video rounded-3xl overflow-hidden "
               onClick={(e) => e.stopPropagation()}
             >
-              <div className={`w-full h-full bg-gradient-to-br ${lightboxItem.gradient}`} />
+              <div className={`w-full h-full bg-linear-to-br ${lightboxItem.gradient} opacity-20 absolute h-full w-full z-1 `} />
+              <Image src={lightboxItem.image} alt={lightboxItem.title} fill objectFit="cover" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <p className="text-xs uppercase tracking-widest text-white/60 mb-2">{lightboxItem.tag}</p>
-                  <h3 className="font-display font-bold text-3xl">{lightboxItem.title}</h3>
+                <div className="text-center text-black text-shadow-2xs text-shadow-white font-bold ">
+                  <p className="text-2xl uppercase tracking-widest mb-2">{lightboxItem.tag}</p>
+                  <h3 className="font-display font-bold text-4xl">{lightboxItem.title}</h3>
                 </div>
               </div>
               <button
                 onClick={() => setLightboxItem(null)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                className="absolute z-2 top-4 right-4 w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
                 aria-label="Close lightbox"
               >
                 <X className="w-5 h-5" />

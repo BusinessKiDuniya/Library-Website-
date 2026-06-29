@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Target, Eye, Heart, Trophy, Users, BookOpen, Star } from "lucide-react";
 import { TEAM, SITE } from "@/lib/data";
+import Image from "next/image";
 
 const values = [
   { icon: BookOpen, title: "Learning First", description: "Every decision we make puts the learner's experience at the centre. Nothing else." },
@@ -33,7 +34,7 @@ export default function AboutClient() {
     <div className="pt-20">
       {/* Hero */}
       <section className="relative py-24 lg:py-32 bg-navy-950 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_#1E3A8A_0%,_#0A0F1E_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,#1E3A8A_0%,#0A0F1E_60%)]" />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl animate-blob" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-emerald-600/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
         <div className="section-container relative text-center">
@@ -118,14 +119,10 @@ export default function AboutClient() {
               className="relative"
             >
               <div className="rounded-3xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-navy-950 to-blue-900 relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-white/70">
-                    <BookOpen className="w-16 h-16 mx-auto mb-4 opacity-40" />
-                    <p className="text-sm font-medium opacity-50">Founder&apos;s Story</p>
-                  </div>
-                </div>
+                
+                <Image src="/about/founder.jpg" alt="Founder" layout="fill" objectFit="cover" objectPosition="top" />
               </div>
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl p-5 border border-gray-100">
+              <div className="absolute border-2 border-red-300 -bottom-4 -left-4 bg-white rounded-2xl shadow-xl p-5 border border-gray-100">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-gold-500/15 flex items-center justify-center">
                     <Trophy className="w-5 h-5 text-gold-500" />

@@ -31,7 +31,8 @@ export default function FacilitiesPage() {
             <div key={facility.id} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center`}>
               <div className={i % 2 !== 0 ? "lg:order-2" : ""}>
                 <div className="relative rounded-3xl overflow-hidden aspect-[4/3] group"
-                  style={{ background: `linear-gradient(135deg, ${["#0A0F1E, #1E3A8A", "#064e3b, #059669", "#1e1b4b, #4338ca", "#7c2d12, #b45309", "#0c4a6e, #0284c7", "#0A0F1E, #374151"][i % 6]})` }}>
+                  style={{ background: `url(${facility.image})`,
+                  backgroundPosition:"center",backgroundSize:"cover" }}>
                   <div className="absolute inset-0 flex items-center justify-center transition-transform duration-700 group-hover:scale-105">
                     <div className="text-center text-white/50">
                       <div className="w-20 h-20 rounded-3xl bg-white/10 flex items-center justify-center mx-auto mb-4">
