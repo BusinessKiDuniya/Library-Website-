@@ -10,7 +10,7 @@ const FLOATING_BADGES = [
   { icon: Volume2, text: "Silent Zone", pos: "top-[22%] left-[10%]" },
   { icon: Building2, text: "Private Lift", pos: "top-[30%] right-[10%]" },
   { icon: Users, text: "All Floors Open", pos: "bottom-[28%] left-[8%]" },
-  { icon: Star, text: "Mentor-Led", pos: "bottom-[22%] right:[9%]" },
+  // { icon: Star, text: "Mentor-Led", pos: "bottom-[22%] right:[9%]" },
 ];
 
 const STAT_ICONS = [Users, BookOpen, Award, BookMarked];
