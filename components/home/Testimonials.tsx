@@ -25,8 +25,24 @@ export default function Testimonials() {
 
   useEffect(() => {
     if (!emblaApi) return;
-    setScrollSnaps(emblaApi.scrollSnapList());
-    emblaApi.on("select", () => setSelectedIndex(emblaApi.selectedScrollSnap()));
+    
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+    
+    const onInit = () => {
+      setScrollSnaps(emblaApi.scrollSnapList());
+    };
+
+    onInit();
+    
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onInit);
+    
+    return () => {
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onInit);
+    };
   }, [emblaApi]);
 
   return (

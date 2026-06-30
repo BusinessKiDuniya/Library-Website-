@@ -48,7 +48,7 @@ export default function BlogClient() {
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
             className="text-gray-300 text-xl max-w-xl mx-auto mb-10">
-            Stories on focus, mentorship, the Teacher's Mindset, and what it really takes to shape tomorrow.
+            Stories on focus, mentorship, the Teacher&apos;s Mindset, and what it really takes to shape tomorrow.
           </motion.p>
           
           {/* Search Box */}

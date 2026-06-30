@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Target, Eye, Heart, Trophy, Users, BookOpen, Star, Quote, Sparkles } from "lucide-react";
+import { ArrowRight, Target, Eye, Heart, Trophy, Users, BookOpen, Star, Quote } from "lucide-react";
 import { TEAM, SITE, FOUNDING_STORY, WALL_OF_FAME } from "@/lib/data";
 
 const values = [
@@ -48,7 +48,7 @@ export default function AboutClient() {
           >
             Built with a
             <br />
-            <span className="italic text-gold-400">Teacher's Mindset</span>
+            <span className="italic text-gold-400">Teacher&apos;s Mindset</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
@@ -240,7 +240,7 @@ export default function AboutClient() {
               Stars Who Sailed <span className="italic text-gold-500">Off to Duties</span>
             </h2>
             <p className="text-gray-500 mt-4 text-lg italic">
-              "{WALL_OF_FAME.tagline}"
+              &ldquo;{WALL_OF_FAME.tagline}&rdquo;
             </p>
           </div>
           <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 max-w-3xl mx-auto">
@@ -298,7 +298,7 @@ export default function AboutClient() {
             Be Part of Our Story
           </h2>
           <p className="text-gray-500 text-lg mb-8 max-w-xl mx-auto">
-            Step into a sanctuary built with a Teacher's Mindset. Connect with us and find your seat at Ayoddhya Library.
+            Step into a sanctuary built with a Teacher&apos;s Mindset. Connect with us and find your seat at Ayoddhya Library.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary inline-flex">

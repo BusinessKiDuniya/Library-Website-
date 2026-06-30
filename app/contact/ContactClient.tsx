@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { MapPin, Phone, Mail, Clock, MessageCircle, CheckCircle, Loader2, PhoneCall } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageCircle, CheckCircle, Loader2, PhoneCall, LucideIcon } from "lucide-react";
 import { SITE } from "@/lib/data";
 
 const contactSchema = z.object({
@@ -20,7 +20,7 @@ type ContactForm = z.infer<typeof contactSchema>;
 
 // Only render info cards for channels that actually exist in data.ts.
 // Email row is omitted when SITE.email is empty.
-type InfoCard = { icon: any; label: string; value: string; href: string };
+type InfoCard = { icon: LucideIcon; label: string; value: string; href: string };
 const infoCards: InfoCard[] = [
   { icon: Phone, label: "Phone", value: SITE.phone, href: `tel:${SITE.phone}` },
 ];

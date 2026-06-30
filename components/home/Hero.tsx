@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Star, Users, Wifi, Volume2, BookOpen, Award, BookMarked, Building2, Sparkles } from "lucide-react";
+import { ArrowRight, Users, Volume2, BookOpen, Award, BookMarked, Building2 } from "lucide-react";
 import { STATS } from "@/lib/data";
 
 const FLOATING_BADGES = [
@@ -123,7 +123,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-normal"
           >
-            Ayoddhya Library — a sanctuary for the focused mind, curated with a Teacher's Mindset. Three floors of premium silence, oversized desks, private lift access, and the only Executive Room of its kind in the vicinity.
+            Ayoddhya Library — a sanctuary for the focused mind, curated with a Teacher&apos;s Mindset. Three floors of premium silence, oversized desks, private lift access, and the only Executive Room of its kind in the vicinity.
           </motion.p>
 
           {/* Action Directives */}
